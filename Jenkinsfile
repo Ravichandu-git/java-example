@@ -1,5 +1,5 @@
 pipeline {
-	agent any 	
+	agent tomcat 	
 	stages {
 		stage('Checkout') {
 			steps {
