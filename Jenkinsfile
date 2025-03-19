@@ -1,24 +1,15 @@
 pipeline {
 	agent tomcat 	
 	stages {
-		stage('Checkout') {
+		stage('git Checkout') {
 			steps {
-				echo 'Checkout completed'
+				git branch: 'main', url: 'https://github.com/Ravichandu-git/java-example.git' 
 			}
 		}
-		stage('Static-test') {
-			steps {
-				echo 'Running static tests on code'
-			}
-		}
+		
 		stage('Build') {
 			steps {
-				sh 'echo "Building the code"'
-			}
-		}
-		stage('Deploy') {
-			steps {
-				echo 'Deploying into environment'
+				sh 'mvn clean install'
 			}
 		}
 	}
